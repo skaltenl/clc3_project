@@ -1,0 +1,8 @@
+version: '3'
+services:
+  weather-service:
+    build: .
+    ports: 
+      - 4200:4200
+      - 3000:3000
+    container_name: weather-app
