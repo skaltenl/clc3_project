@@ -15,7 +15,7 @@ import { AngularWeatherWidgetModule } from 'angular2-weather-widget';
   ],
   imports: [
     AngularWeatherWidgetModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     CommonModule
