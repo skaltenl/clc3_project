@@ -51,7 +51,9 @@ func HandleDeploymentFinishedEvent(myKeptn *keptn.Keptn, incomingEvent cloudeven
 	// run tests
 	// ToDo: Implement your tests here
 	// Send Test Finished Event
-	if( func (c *Cmd("hey_windows_amd64 http://localhost:4200/")) Run() error == nil){
+	// at least 100 requests
+	url := data.Service + "." + data.Project + "-" + data.Stage + ".svc.cluster.local"
+	if( func (c *Cmd("hey_linux_amd64 " + url)) Run() error == nil){
 		return myKeptn.SendTestsFinishedEvent(&incomingEvent, "", "", startTime, "pass", nil, "weatherapp")
 	}
 	return myKeptn.SendTestsFinishedEvent(&incomingEvent, "", "", startTime, "fail", nil, "weatherapp")
