@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os/exec"
 	"time"
@@ -54,20 +53,30 @@ func HandleDeploymentFinishedEvent(myKeptn *keptn.Keptn, incomingEvent cloudeven
 	// ToDo: Implement your tests here
 	// Send Test Finished Event
 	// default 200 requests are sent
-	//url := data.Service + "." + data.Project + "-" + data.Stage + ".svc.cluster.local"
+	url := data.Service + "." + data.Project + "-" + data.Stage + ".svc.cluster.local"
 
-	/*cmd := exec.Command("hey_linux_amd64", url)
-	if( func (c *cmd) Run() error == nil){
+	cmd := exec.Command("hey_linux_amd64", url)
+
+	_,err := cmd.CombinedOutput()
+	if err == nil {
 		return myKeptn.SendTestsFinishedEvent(&incomingEvent, "", "", startTime, "pass", nil, "hey-service")
 	}
-	*/
+
+
+	//if( func (c *cmd) Run() error == nil){
+		//
+	//}
+	
+	return myKeptn.SendTestsFinishedEvent(&incomingEvent, "", "", startTime, "fail", nil, "hey-service")
+	/*
 	cmd := exec.Command("echo", "hallo")
 	stdoutStderr, err := cmd.CombinedOutput()
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Printf("%s\n", stdoutStderr)
-	return myKeptn.SendTestsFinishedEvent(&incomingEvent, "", "", startTime, "fail", nil, "hey-service")
+	*/
+
 
 }
 
