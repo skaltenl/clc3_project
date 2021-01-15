@@ -49,8 +49,6 @@ func HandleDeploymentFinishedEvent(myKeptn *keptn.Keptn, incomingEvent cloudeven
 	// capture start time for tests
 	startTime := time.Now()
 
-	// run tests
-	// ToDo: Implement your tests here
 	// Send Test Finished Event
 	// default 200 requests are sent
 	url := data.Service + "." + data.Project + "-" + data.Stage + ".svc.cluster.local"
@@ -65,22 +63,8 @@ func HandleDeploymentFinishedEvent(myKeptn *keptn.Keptn, incomingEvent cloudeven
 		log.Printf("%s\n", stdoutStderr)
 	}
 	log.Printf("Error occured when running hey %v", err)
-
-	//if( func (c *cmd) Run() error == nil){
-		//
-	//}
 	
 	return myKeptn.SendTestsFinishedEvent(&incomingEvent, "", "", startTime, "fail", nil, "hey-service")
-	/*
-	cmd := exec.Command("echo", "hallo")
-	stdoutStderr, err := cmd.CombinedOutput()
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Printf("%s\n", stdoutStderr)
-	*/
-
-
 }
 
 //
