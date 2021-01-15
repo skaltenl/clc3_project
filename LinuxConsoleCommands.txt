@@ -1,0 +1,15 @@
+GIT_USER=sanlauf
+GIT_TOKEN=21593f041ddbaefcbf22974956eb04b65ba68943
+GIT_REMOTE_URL=https://github.com/sanlauf/weatherapp.git
+
+keptn create project weatherappv2 --shipyard=./shipyard.yaml --git-user=sanlauf --git-token=21593f041ddbaefcbf22974956eb04b65ba68943 --git-remote-url=https://github.com/sanlauf/weatherapp.git
+
+keptn onboard service svc-weatherapp --project=weatherappv2 --chart=./svc-weatherapp
+
+keptn send event new-artifact --project=weatherappv2 --service=svc-weatherapp --image=docker.io/simonesan/weatherapp
+
+kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/dynatrace-sli-service/0.7.1/deploy/service.yaml -n keptn
+
+keptn add-resource --project=weatherappv2 --resource=sli-config-dynatrace.yaml --resourceUri=dynatrace/sli.yaml
+
+keptn configure monitoring dynatrace --project=weatherappv2
