@@ -54,14 +54,17 @@ func HandleDeploymentFinishedEvent(myKeptn *keptn.Keptn, incomingEvent cloudeven
 	// Send Test Finished Event
 	// default 200 requests are sent
 	url := data.Service + "." + data.Project + "-" + data.Stage + ".svc.cluster.local"
+	log.Printf("Sending test requests to %s", url)
+	cmd := exec.Command("./hey_linux_amd64", url)
 
-	cmd := exec.Command("hey_linux_amd64", url)
-
-	_,err := cmd.CombinedOutput()
+	stdoutStderr, err := cmd.CombinedOutput()
 	if err == nil {
 		return myKeptn.SendTestsFinishedEvent(&incomingEvent, "", "", startTime, "pass", nil, "hey-service")
 	}
-
+	if stdoutStderr != nil {
+		log.Printf("%s\n", stdoutStderr)
+	}
+	log.Printf("Error occured when running hey %v", err)
 
 	//if( func (c *cmd) Run() error == nil){
 		//

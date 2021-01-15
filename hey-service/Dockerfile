@@ -52,6 +52,7 @@ ENV VERSION="${version}"
 
 # Copy the binary to the production image from the builder stage.
 COPY --from=builder /src/hey-service/hey-service /hey-service
+COPY --from=builder /src/hey-service/hey_linux_amd64 /hey_linux_amd64
 
 EXPOSE 8080
 

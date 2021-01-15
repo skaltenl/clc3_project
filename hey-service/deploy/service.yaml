@@ -19,7 +19,7 @@ spec:
         - name: hey-service
           image: simonesan/hey-service:latest # Todo: Replace this with your image name
           ports:
-            - containerPort: 4200
+            - containerPort: 8080
           env:
             - name: EVENTBROKER
               value: 'http://event-broker/keptn'
