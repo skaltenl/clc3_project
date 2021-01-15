@@ -1,5 +1,5 @@
 GIT_USER=sanlauf
-GIT_TOKEN=21593f041ddbaefcbf22974956eb04b65ba68943
+GIT_TOKEN=YOUR TOKEN
 GIT_REMOTE_URL=https://github.com/sanlauf/weatherapp.git
 
 keptn create project weatherappv2 --shipyard=./shipyard.yaml --git-user=sanlauf --git-token=21593f041ddbaefcbf22974956eb04b65ba68943 --git-remote-url=https://github.com/sanlauf/weatherapp.git
