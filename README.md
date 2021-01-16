@@ -1,6 +1,6 @@
 # Tutorial CD with Keptn tested by Hey
 
-This git repository containing a tutorial for setting up a continuous deployment with Keptn ([https://keptn.sh/](https://keptn.sh/)) for an example application that is tested by Hey ([https://github.com/rakyll/hey](https://github.com/rakyll/hey)) and monitored by Dynatrace ([https://www.dynatrace.com/](https://www.dynatrace.com/)).
+This is a git repository containing a tutorial for setting up a continuous deployment with Keptn ([https://keptn.sh/](https://keptn.sh/)) for an example application that is tested by Hey ([https://github.com/rakyll/hey](https://github.com/rakyll/hey)) and monitored by Dynatrace ([https://www.dynatrace.com/](https://www.dynatrace.com/)).
 
 Keptn is a tool for an event-based control plane for continuous deployment and automated operations for cloud-native applications. Hey is a load generator for web applications. Dynatrace is used in this tutorial for production monitoring.
 
